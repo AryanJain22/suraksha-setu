@@ -1,8 +1,12 @@
 import React from 'react'
 import FeedCard from '../components/FeedCard'
+import { useContext } from 'react';
+import { FeedsContext } from '../context/FeedContext';
 import ProfileCard from '../components/ProfileCard'
 
 const Profile = () => {
+    const feeds = useContext(FeedsContext);
+
     return (
         <>
             <div className="w-[95%] m-auto">
