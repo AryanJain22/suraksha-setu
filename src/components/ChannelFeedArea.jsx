@@ -25,7 +25,6 @@ const ChannelFeedArea = ({ showChannels, setShowChannels }) => {
                     <FeedCard />
                     <FeedCard />
                     <FeedCard />
-
                 </div>
             </div>
         </>
