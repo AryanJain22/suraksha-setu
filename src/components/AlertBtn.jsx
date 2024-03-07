@@ -32,6 +32,8 @@ const AlertBtn = () => {
         // Your socket implementation to send the message and location
         // Replace this with your actual implementation
         console.log(`Sending message: ${message} from location: ${location.latitude}, ${location.longitude}`);
+
+        alert("We Have your Location, Help will arrive shortly");
     };
 
     return (
@@ -71,6 +73,18 @@ const AlertBtn = () => {
                             onClick={() => handleOptionSelect('Fire')}
                         >
                             Fire
+                        </button>
+                        <button
+                            className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            onClick={() => handleOptionSelect('Flood')}
+                        >
+                            Flood
+                        </button>
+                        <button
+                            className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            onClick={() => handleOptionSelect('Car Accident')}
+                        >
+                            Car Accident
                         </button>
                         {/* Add more options as needed */}
                     </div>

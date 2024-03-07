@@ -1,5 +1,9 @@
 from twilio.rest import Client
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
 
 def send_sms_alert(account_sid, auth_token, from_number, to_number, message):
     try:
@@ -18,13 +22,21 @@ def send_sms_alert(account_sid, auth_token, from_number, to_number, message):
     except Exception as e:
         print(f"Error sending SMS alert: {str(e)}")
 
+@app.route('/send-alert', methods=['POST'])
+def handle_alert():
+    if request.method == 'POST':
+        data = request.get_json()
+        message = data.get('message')
+        numbers = data.get('numbers')
+        # Example usage
+        account_sid = "AC56fea2b43606d840f383ec00f1a0b540"
+        auth_token = "efb6eeee98bccf8e4f41dfa7655123da"
+        from_number = "+12407927032"  # Twilio Sandbox number provided during the trial
+        to_number = "9816443545"  # Recipient's phone number
+        for i in numbers:
+            send_sms_alert(account_sid, auth_token, from_number, i, message)
+        return jsonify({'success': True}), 200
+    return jsonify({'error': 'Method not allowed'}), 405
 
-# Example usage
-account_sid = "ACcba4c2b4401afdb6efcc364e36f4148b"
-auth_token = "7a0a5d56280c619b6321da716a37338f"
-from_number = "+12543234503"  # Twilio Sandbox number provided during the trial
-numbers = ["+918423068386", "+918920419037", "+917903863776", "+916388374850"]
-to_number = numbers  # Recipient's phone number
-message = "This is an SMS alert."
-for i in numbers:
-    send_sms_alert(account_sid, auth_token, from_number, i, message)
+if __name__ == '__main__':
+    app.run(debug=True)
