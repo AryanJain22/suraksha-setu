@@ -41,7 +41,7 @@ const AlertBtn = () => {
             <div>
                 <button
                     type="button"
-                    className="focus:outline-none my-5 mx-auto text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                    className="focus:outline-none my-3 mx-auto text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base px-6 py-3 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
                     Emergency &darr;
@@ -72,19 +72,13 @@ const AlertBtn = () => {
                             className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             onClick={() => handleOptionSelect('Fire')}
                         >
-                            Fire
+                            Forest Fire
                         </button>
                         <button
                             className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             onClick={() => handleOptionSelect('Flood')}
                         >
                             Flood
-                        </button>
-                        <button
-                            className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                            onClick={() => handleOptionSelect('Car Accident')}
-                        >
-                            Car Accident
                         </button>
                         {/* Add more options as needed */}
                     </div>

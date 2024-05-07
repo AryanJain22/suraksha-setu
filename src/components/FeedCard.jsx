@@ -13,7 +13,7 @@ const FeedCard = ({ imageLink, date, title, content, adminName }) => {
 
     return (
         <>
-            <div className="card rounded-lg bg-white shadow-md w-[90%]  lg:w-[96%] md:w-[95%] max-w-[400px] text-white flex flex-col justify-center items-start gap-2 p-4">
+            <div className="card rounded-lg bg-[#7AB2B2] shadow-md w-[90%] lg:w-[96%] md:w-[95%] max-w-[400px] text-black flex flex-col justify-center items-start gap-2 p-4">
                 <img
                     className="w-full h-64 sm:h-52 lg:h-64 md:h-56 rounded-lg object-cover"
                     src={imageLink}
@@ -24,7 +24,7 @@ const FeedCard = ({ imageLink, date, title, content, adminName }) => {
                     {date}
                 </span>
 
-                <h2 className="text-[17px] max-w-[95%] trim-content font-semibold text-black">
+                <h2 className="text-[17px] max-w-[95%] trim-content font-semibold">
                     {title}
                 </h2>
 
@@ -38,13 +38,12 @@ const FeedCard = ({ imageLink, date, title, content, adminName }) => {
                 <ReadFeed imageLink={imageLink} title={title} content={content} />
 
                 <div className="w-full">
-
-                    <h3 className="text-lg md:text-base text-black font-semibold inline">
+                    <h3 className="text-lg md:text-base font-semibold inline">
                         {manageStr(`${adminName}`, 25)}
                     </h3>
-
                 </div>
             </div>
+
         </>
     );
 };

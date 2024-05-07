@@ -3,24 +3,24 @@ import { useState } from "react";
 const ReadFeed = ({ imageLink, title, content }) => {
     const [isOpen, setIsOpen] = useState(false);
 
+    // Function to toggle isOpen state
+    const toggleOpen = () => setIsOpen(!isOpen);
+
     return (
         <>
             <button
-                onClick={() => setIsOpen(true)}
-                className="underline text-blue-500 text-[13px] md:text-sm"
+                onClick={toggleOpen}
+                className="underline text-[#FFE7E7] text-[13px] md:text-sm"
             >
                 Read more
             </button>
 
-            {isOpen &&
-                <div
-                    className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-20"
-                    onClick={() => setIsOpen(false)}
-                >
+            {isOpen && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <div className="bg-gray-50 rounded-lg shadow-lg w-[90%] md:w-[550px]">
                         <div className="flex justify-end pt-2 pr-2">
                             <button
-                                onClick={() => setIsOpen(false)}
+                                onClick={toggleOpen}
                                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center"
                             >
                                 <svg
@@ -55,7 +55,7 @@ const ReadFeed = ({ imageLink, title, content }) => {
                         </div>
                     </div>
                 </div>
-            }
+            )}
         </>
     );
 };

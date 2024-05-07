@@ -29,20 +29,26 @@ const WeatherRow = () => {
     return (
         <>
 
-            <h1 className='text-3xl font-semibold md:text-4xl my-5'>Weather</h1>
+            <div className="flex flex-col items-center">
+                <div className="flex justify-center">
+                    <h1 className='text-3xl font-semibold md:text-4xl my-5'>Weather</h1>
+                </div>
+                <div className="flex justify-center">
+                    <div className="w-32 h-1 bg-gray-600 my-1"></div>
+                </div>
 
-            <div className="w-full max-w[100%] overflow-x-auto flex gap-5 scrollbar-hide">
-                <WeatherCard date={weatherData[0]?.date} sunrise={weatherData[0]?.astro.sunrise} sunset={weatherData[0]?.astro.sunset} temp={weatherData[0]?.day.avgtemp_c} windSpeed={weatherData[0]?.day.maxwind_kph} humidity={weatherData[0]?.day.avghumidity} imgLink={weatherData[0]?.day.condition.icon} />
+                <br></br>
 
-                {
-                    weatherData?.slice(1, 8).map((ele, i) => (
-                        <WeatherSmallCard key={i} date={ele.date} imgLink={ele.day.condition.icon} temp={ele.day.avgtemp_c} />
-                    ))
-                }
+                <div className="w-full max-w-[100%] overflow-x-auto flex gap-5 justify-center scrollbar-hide">
+                    <WeatherCard date={weatherData[0]?.date} sunrise={weatherData[0]?.astro.sunrise} sunset={weatherData[0]?.astro.sunset} temp={weatherData[0]?.day.avgtemp_c} windSpeed={weatherData[0]?.day.maxwind_kph} humidity={weatherData[0]?.day.avghumidity} imgLink={weatherData[0]?.day.condition.icon} />
 
+                    {
+                        weatherData?.slice(1, 8).map((ele, i) => (
+                            <WeatherSmallCard key={i} date={ele.date} imgLink={ele.day.condition.icon} temp={ele.day.avgtemp_c} />
+                        ))
+                    }
+                </div>
             </div>
-
-
         </>
     )
 }

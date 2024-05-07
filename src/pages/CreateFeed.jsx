@@ -24,7 +24,7 @@ const CreateFeed = () => {
 
     loadModel();
   }, []);
-  
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
       setLatitude(position.coords.latitude);
@@ -47,7 +47,7 @@ const CreateFeed = () => {
     // Check if the image is predicted as mild or severe disaster   
     const maxIndex = predictions.indexOf(Math.max(...predictions));
     console.log(maxIndex);
-    const isMildOrSevereDisaster =( maxIndex === 1 || maxIndex === 2);
+    const isMildOrSevereDisaster = (maxIndex === 1 || maxIndex === 2);
     console.log(isMildOrSevereDisaster);
     return isMildOrSevereDisaster;
   };
@@ -91,7 +91,7 @@ const CreateFeed = () => {
                       latitude: latitude,
                       longitude: longitude,
                     });
-                   alert("Successfully posted!");
+                    alert("Successfully posted!");
                   } catch (error) {
                     console.log(error.message);
                   } finally {
@@ -114,87 +114,74 @@ const CreateFeed = () => {
 
 
 
-    return (
-        <div className="w-full flex justify-center items-center">
+  return (
+    <div className="w-full flex justify-center items-center">
+      <div className="w-[85%] sm:w-[80%] max-w-[800px] my-4 md:my-6 lg:my-8">
+        <h2 className="text-4xl font-bold text-black mb-6 lg:mb-8">Create Blog</h2>
+        <form
+          onSubmit={e => handleSubmit(e)}
+          className="bg-white p-6 rounded-md flex flex-col gap-8 shadow-[0px_0px_15px_1px_#00000024]"
+        >
+          <div className="relative z-0">
+            <input
+              type="text"
+              name="title"
+              id="floating_title"
+              className="block py-2.5 px-3 w-full text-lg text-black bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_title"
+              className="absolute text-md text-gray-500 transition-all origin-0 top-3 left-3 peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 peer-focus:top-0"
+            >
+              Title of Feed
+            </label>
+          </div>
+          <div className="relative z-0">
+            <textarea
+              rows={5}
+              name="description"
+              id="floating_description"
+              className="block py-2.5 px-3 w-full text-lg text-black bg-transparent border-b-2 border-gray-300 focus:outline-none focus:border-blue-600"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_description"
+              className="absolute text-md text-gray-500 transition-all origin-0 top-3 left-3 peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-focus:text-blue-600 peer-focus:top-0"
+            >
+              Description
+            </label>
+          </div>
+          <div>
+            <label
+              className="block mb-2 text-md font-bold text-gray-700 cursor-pointer"
+              htmlFor="feed-pic"
+            >
+              Upload file
+            </label>
+            <input
+              id="feed-pic"
+              className="p-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer"
+              type="file"
+              name="feedImage"
+            />
+          </div>
+          <div className="text-center">
+            <button
+              type="submit"
+              className={`text-white mt-3 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-base px-4 py-2 ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+              disabled={loading}
+            >
+              {loading ? 'Submitting...' : 'Submit'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-            <div className=" w-[85%] sm:w-[80%] max-w-[800px] my-4 md:my-6 lg:my-8 ">
-                <h2 className="text-4xl font-bold text-black mb-6 lg:mb-8">Create Blog</h2>
-                <form
-                    onSubmit={e => handleSubmit(e)}
-                    action=""
-                    className="bg-white p-6 rounded-md flex flex-col gap-8 shadow-[0px_0px_15px_1px_#00000024]"
-                >
-                    <div className="relative z-0 w-full group">
-                        <input
-                            type="text"
-                            name="title"
-                            id="floating_title"
-                            className="block py-2.5 px-0 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" "
-                            required
-                        />
-                        <label
-                            htmlFor="floating_title"
-                            className="peer-focus:font-medium absolute text-md text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                        >
-                            Title of Feed
-                        </label>
-                    </div>
-                    <div className="relative z-0 w-full group">
-                        <textarea
-                            rows={5}
-                            type="text"
-                            name="description"
-                            id="floating_title"
-                            className="block py-2.5 px-0 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" "
-                            required
-                        />
-                        <label
-                            htmlFor="floating_title"
-                            className="peer-focus:font-medium absolute text-md text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                        >
-                            Description
-                        </label>
-                    </div>
-
-                    {/* <div>
-                        <input
-                            type="datetime-local"
-                            name="datetime"
-                            id="floating_datetime"
-                            className="block py-2.5 px-0 mt-2 mb-2 w-full text-lg text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer cursor-pointer"
-                            required
-                        />
-                    </div> */}
-
-                    <div>
-                        <label
-                            className="block mb-2 text-md font-bold text-gray-700 cursor-pointer"
-                            htmlFor="feed-pic"
-                        >
-                            Upload file
-                        </label>
-                        <input
-                            id="feed-pic"
-                            className="p-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer"
-                            aria-describedby="file_input_help"
-                            type="file"
-                            name="feedImage"
-                        />
-                    </div>
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            className={`text-white mt-3 cursor-pointer ${loading ? 'bg-blue-300' : 'bg-blue-600'} hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-base sm:w-auto px-4 py-1.5 text-center`} disabled={loading}
-                        >
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
+  );
 };
 
 export default CreateFeed;
