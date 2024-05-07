@@ -9,7 +9,7 @@ import { AiOutlineMessage } from 'react-icons/ai';
 const Home = () => {
     const feeds = useContext(FeedsContext);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [hovered, setHovered] = useState(false);
+    const [showChat, setShowChat] = useState(false);
 
     // Dummy images array for demonstration
     const images = [
@@ -30,14 +30,17 @@ const Home = () => {
         return () => clearInterval(intervalId); // Clear interval on component unmount
     }, []);
 
+    // Function to toggle the chat window
+    const toggleChat = () => {
+        setShowChat(!showChat);
+    };
+
     return (
         <div className="w-[95%] m-auto">
-            <div className="flex justify-center">
-                <AlertBtn />
-            </div>
+            <AlertBtn />
 
             {/* Image Carousel */}
-            <div className="flex justify-center my-3">
+            <div className="flex justify-center">
                 <h1 className='text-3xl font-semibold md:text-4xl my-5'>Public Awareness</h1>
             </div>
             <div className="flex justify-center">
@@ -53,10 +56,13 @@ const Home = () => {
             {/* Maps */}
             <SectionHeader title="Maps" />
             <MapWithMarker />
-            <br></br>
+            <br />
 
             {/* Chat Button */}
-            <ChatButton />
+            <ChatButton toggleChat={toggleChat} />
+
+            {/* Chat Box */}
+            {showChat && <ChatBox onClose={toggleChat} />}
 
             <Footer />
         </div>
@@ -134,19 +140,68 @@ const MapWithMarker = () => {
 };
 
 // Reusable component for chat button
-const ChatButton = () => {
-    const [hovered, setHovered] = useState(false);
-
+const ChatButton = ({ toggleChat }) => {
     return (
         <button
             className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 flex items-center"
-            onClick={() => console.log("Open chat window")} // Add your chat functionality here
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            onClick={toggleChat}
         >
             <AiOutlineMessage size={24} />
-            {hovered && <span className="ml-2">Chat bot</span>}
+            <span className="ml-2">Chat-box</span>
         </button>
+    );
+};
+
+// Reusable component for chat box
+const ChatBox = ({ onClose }) => {
+    const [message, setMessage] = useState('');
+    const [chatHistory, setChatHistory] = useState([]);
+
+    const sendMessage = () => {
+        setChatHistory([...chatHistory, { message: message, sender: 'user' }]);
+        // Simulated response from the chatbot
+        const response = 'This is a simulated response from the chatbot.';
+        setChatHistory([...chatHistory, { message: response, sender: 'bot' }]);
+        setMessage('');
+    };
+
+    return (
+        <div className="fixed bottom-8 right-8 bg-white p-4 rounded-lg shadow-lg w-[400px] max-h-[600px] overflow-y-auto">
+            <div className="flex justify-between items-center mb-2">
+                <h2 className="text-xl font-semibold">Chat-Box</h2>
+                <button className="text-gray-500 hover:text-gray-600" onClick={onClose}>
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm-4.293-5.707a1 1 0 011.414-1.414L10 12.586l3.879-3.879a1 1 0 111.414 1.414L11.414 14l3.879 3.879a1 1 0 01-1.414 1.414L10 15.414l-3.879 3.879a1 1 0 01-1.414-1.414L8.586 14 4.707 10.121a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                        />
+                    </svg>
+                </button>
+            </div>
+            <div className="mb-4">
+                {chatHistory.map((chat, index) => (
+                    <div key={index} className={`text-${chat.sender === 'user' ? 'blue' : 'gray'}-700`}>
+                        {chat.message}
+                    </div>
+                ))}
+            </div>
+            <div className="flex items-center">
+                <input
+                    type="text"
+                    className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-blue-500"
+                    placeholder="Ask you question..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                <button
+                    className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none"
+                    onClick={sendMessage}
+                >
+                    Send
+                </button>
+            </div>
+        </div>
     );
 };
 
