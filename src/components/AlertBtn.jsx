@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/AuthContext'
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase-config';
+import axios from 'axios';
 
 const AlertBtn = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
+    const currentUser = useContext(AuthContext);
+    const [userData, setUserData] = useState([]);
+    
     const handleOptionSelect = async (option) => {
         setSelectedOption(option);
         setDropdownOpen(false);
+        
+    
 
-        try {
-            // Get user's current location
-            const position = await getCurrentPosition();
-            const { latitude, longitude } = position.coords;
-
-            // Send the message and location via socket
-            const message = `Emergency Alert: ${option}`;
-            const location = { latitude, longitude };
-            sendAlertMessage(message, location);
-        } catch (error) {
-            console.error('Error getting location:', error);
-        }
+          
+           
+       
     };
 
     const getCurrentPosition = () => {
@@ -28,13 +27,80 @@ const AlertBtn = () => {
         });
     };
 
-    const sendAlertMessage = (message, location) => {
+    const sendAlertMessage = async(message, location) => {
         // Your socket implementation to send the message and location
         // Replace this with your actual implementation
-        console.log(`Sending message: ${message} from location: ${location.latitude}, ${location.longitude}`);
+        try{
 
-        alert("We Have your Location, Help will arrive shortly");
+            const res = await axios.get('https://backend-epic.onrender.com/api/ackfront') ;
+            console.log(res.data) ;
+            if(res.data === true)
+                {
+                    const res = await axios.get('https://backend-epic.onrender.com/api/ackback') ;
+                    alert("We have your Location, Help will arrive shortly.")
+                }
+        }
+        catch(error){
+            console.log(error) ;
+        }
+       
+        // console.log(`Sending message: ${message} from location: ${location.latitude}, ${location.longitude}`);
+       
+       
     };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Get user's current location
+                const position = await getCurrentPosition();
+                const { latitude, longitude } = position.coords;
+                const currentTime = new Date();
+    
+                const response = await axios.post('https://backend-epic.onrender.com/api/save', {
+                    latitude,
+                    longitude,
+                    userData,
+                    selectedOption,
+                    currentTime
+                });
+    
+                if (response.status === 200) {
+                    alert('Location data sent successfully');
+                } else {
+                    console.error('Failed to send location data');
+                }
+            } catch (error) {
+                console.error('Error sending location data:', error);
+            }
+        };
+    
+        // Fetch data only when selectedOption changes
+        if (selectedOption !== null) {
+            fetchData();
+        }
+    }, [selectedOption]);
+  
+
+    useEffect(() => {
+        if (currentUser && currentUser.uid) {
+            const docRef = doc(db, "users", currentUser.uid);
+
+            const unsub = onSnapshot(docRef, (doc) => {
+                setUserData(doc.data());
+            });
+
+            return () => {
+                unsub();
+            };
+        }
+    }, [currentUser]);
+  
+    useEffect(()=>{
+        sendAlertMessage();
+    })
+
+
+
 
     return (
         <div className="relative inline-block text-left">

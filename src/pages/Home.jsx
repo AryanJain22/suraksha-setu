@@ -13,7 +13,7 @@ const Home = () => {
 
     // Dummy images array for demonstration
     const images = [
-        'https://i.ibb.co/t3GGXTM/EMERGENCY-BUTTON.jpg',
+        'https://i.ibb.co/GnW1r3Y/EMERGENCY-BUTTON.jpg',
         'https://t4.ftcdn.net/jpg/06/32/25/85/360_F_632258589_fHQIsIXfXCPtLITflcVlO0aly7fS64hm.jpg',
         'https://5.imimg.com/data5/SELLER/Default/2023/12/369974067/NM/XF/MS/9978962/emergency-preparedness.png',
         'https://media.licdn.com/dms/image/D5612AQFrDcQRT1Hg5A/article-cover_image-shrink_720_1280/0/1664286287175?e=2147483647&v=beta&t=4s6tMVpYXT2GQuUJ9wBLvYq2huFD-mAbiOor1Ww2kqI',
@@ -141,13 +141,25 @@ const MapWithMarker = () => {
 
 // Reusable component for chat button
 const ChatButton = ({ toggleChat }) => {
+    const [showName, setShowName] = useState(false);
+
+    const handleMouseEnter = () => {
+        setShowName(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowName(false);
+    };
+
     return (
         <button
-            className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 flex items-center"
+            className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             onClick={toggleChat}
         >
             <AiOutlineMessage size={24} />
-            <span className="ml-2">Chat-box</span>
+            {showName && <span className="ml-2">Chat-Box</span>}
         </button>
     );
 };
@@ -166,7 +178,7 @@ const ChatBox = ({ onClose }) => {
     };
 
     return (
-        <div className="fixed bottom-8 right-8 bg-white p-4 rounded-lg shadow-lg w-[400px] max-h-[600px] overflow-y-auto">
+        <div className="fixed bottom-8 right-8 bg-white p-4 rounded-lg shadow-lg w-[90%] md:w-[400px] max-h-[600px] overflow-y-auto">
             <div className="flex justify-between items-center mb-2">
                 <h2 className="text-xl font-semibold">Chat-Box</h2>
                 <button className="text-gray-500 hover:text-gray-600" onClick={onClose}>
@@ -190,7 +202,7 @@ const ChatBox = ({ onClose }) => {
                 <input
                     type="text"
                     className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-blue-500"
-                    placeholder="Ask you question..."
+                    placeholder="Ask your question..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />

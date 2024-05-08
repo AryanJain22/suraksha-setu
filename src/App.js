@@ -23,6 +23,10 @@ const App = () => {
 
     return children;
   };
+  const isAdminRoute = () => {
+    return window.location.pathname.startsWith('/admin');
+};
+
 
   return (
 
@@ -33,7 +37,7 @@ const App = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
-        <Route path='/admin' element={<Admin />} />
+        <Route path='/admin/*' element={<Admin />} />
         <Route path='/aboutUs' element={<AboutUs />} />
 
         <Route path='/create-feed' element={<ProtectedRoute><CreateFeed /></ProtectedRoute>} />
