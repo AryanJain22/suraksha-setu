@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import ReadFeed from "./ReadFeed";
 
 const FeedCard = ({ imageLink, date, title, content, adminName }) => {
-
+    const [editableContent, setEditableContent] = useState(content);
+    const [editableTitle, setEditableTitle] = useState(title);
 
     const manageStr = (str, maxLetter) => {
         if (str?.length > maxLetter) return str.slice(0, maxLetter) + "...";
         else return str;
     };
 
+    const handleContentChange = (event) => {
+        setEditableContent(event.target.value);
+    };
 
+    const handleTitleChange = (event) => {
+        setEditableTitle(event.target.value);
+    };
 
     return (
         <>
@@ -24,18 +31,20 @@ const FeedCard = ({ imageLink, date, title, content, adminName }) => {
                     {date}
                 </span>
 
-                <h2 className="text-[17px] max-w-[95%] trim-content font-semibold">
-                    {title}
-                </h2>
+                <input
+                    className="text-[17px] max-w-[95%] trim-content font-semibold bg-transparent outline-none border-none"
+                    type="text"
+                    value={editableTitle}
+                    onChange={handleTitleChange}
+                />
 
-                <p className="text-gray-900 text-[15px] py-1 h-[75px] max-h-[88px]">
-                    {manageStr(
-                        `${content}`,
-                        120
-                    )}
-                </p>
+                <textarea
+                    className="text-gray-900 text-[15px] py-1 h-[75px] max-h-[88px] bg-transparent outline-none border-none resize-none"
+                    value={editableContent}
+                    onChange={handleContentChange}
+                />
 
-                <ReadFeed imageLink={imageLink} title={title} content={content} />
+                <ReadFeed imageLink={imageLink} title={editableTitle} content={editableContent} />
 
                 <div className="w-full">
                     <h3 className="text-lg md:text-base font-semibold inline">

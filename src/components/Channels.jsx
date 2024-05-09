@@ -10,6 +10,7 @@ const Channels = ({ showChannels, setShowChannels }) => {
                 <div className="w-full h-full bg-white overflow-y-auto my-scrollbar" style={{ height: 'calc(100% - 3.5rem)' }} >
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
+                    {/* <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
@@ -29,8 +30,7 @@ const Channels = ({ showChannels, setShowChannels }) => {
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
                     <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
-                    <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
-                    <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} />
+                    <ChannelCard showChannels={showChannels} setShowChannels={setShowChannels} /> */}
                     
                     
                 </div>

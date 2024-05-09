@@ -16,15 +16,19 @@ const ChannelFeedArea = ({ showChannels, setShowChannels }) => {
                 <h2 className='text-lg md:text-xl font-semibold '>Name of Channel</h2>
             </div>
 
-            <div className="w-full flex flex-col gap-8 bg-cover bg-center bg-no-repeat  overflow-y-auto my-scrollbar p-8" style={{ height: 'calc(100% - 3.5rem)', backgroundImage: `url(${bg})` }} >
-                <FeedCard key={1} />
-                <FeedCard key={2} />
-                <FeedCard key={3} />
-                <FeedCard key={4} />
-                <FeedCard key={5} />
-                <FeedCard key={6} />
-                <FeedCard key={7} />
+            <div className="w-full flex flex-col gap-8 bg-cover bg-center bg-no-repeat overflow-y-auto my-scrollbar p-8" style={{ height: 'calc(100% - 3.5rem)', backgroundImage: `url(${bg})` }}>
+                <div className="bg-green-500 max-w-[80%] p-4 rounded-lg self-end">
+                    <p className="text-white text-sm">This is some normal text.</p>
+                    <p className="text-white text-sm">You can write anything you want here.</p>
+                    <p className="text-white text-sm">Feel free to add more text or remove any of these lines.</p>
+                </div>
+                <div className="bg-green-500 max-w-[80%] p-4 rounded-lg self-end">
+                    <p className="text-white text-sm">This is some normal text.</p>
+                    <p className="text-white text-sm">You can write anything you want here.</p>
+                    <p className="text-white text-sm">Feel free to add more text or remove any of these lines.</p>
+                </div>
             </div>
+
         </div>
     )
 }
