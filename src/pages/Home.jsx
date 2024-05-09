@@ -152,15 +152,7 @@ const ChatButton = ({ toggleChat }) => {
     };
 
     return (
-        <button
-            className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={toggleChat}
-        >
-            <AiOutlineMessage size={24} />
-            {showName && <span className="ml-2">Chat-Box</span>}
-        </button>
+       <></>
     );
 };
 

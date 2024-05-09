@@ -17,7 +17,7 @@ const CreateFeed = () => {
   useEffect(() => {
     const loadModel = async () => {
       const loadedModel = await tf.loadLayersModel(
-        "https://suraksha-setu.vercel.app//disasterlevel/model.json"
+        "https://suraksha-setu.vercel.app/disasterlevel/model.json"
       );
       setModel(loadedModel);
     };
