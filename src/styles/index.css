@@ -28,9 +28,9 @@ html::-webkit-scrollbar,
 html::-webkit-scrollbar-thumb,
 .my-scrollbar::-webkit-scrollbar-thumb {
     border-radius: 0.5rem;
-    background-color: rgb(156, 59, 246);
-    border: 0.2rem solid #eeeeee;
-    border: 0.2rem solid rgb(100, 56, 67);
+    /* background-color: rgb(156, 59, 246); */
+    /* border: 0.2rem solid #eeeeee; */
+    /* border: 0.2rem solid rgb(100, 56, 67); */
 }
 
 .my-scrollbar::-webkit-scrollbar-thumb {
