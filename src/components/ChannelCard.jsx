@@ -9,7 +9,7 @@ const ChannelCard = ({ setShowChannels }) => {
                 alt="Rounded avatar"
             />
 
-            <h3 className='text-base md:text-lg max-w-[280px] trim-content text-white'>Channel Name</h3>
+            <h3 className='text-base md:text-lg max-w-[280px] trim-content text-white'>Suraksha Yojna</h3>
         </div>
     )
 }
