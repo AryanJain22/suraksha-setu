@@ -22,15 +22,15 @@ const Navbar = () => {
                 </button>
 
                 <ul className={`w-full md:w-auto absolute top-16 left-0 ${openNav && 'left-[-100%]'} d-flex flex-col md:flex-row border-t text-black bg-[#4D869C] md:border-0 md:static py-5 gap-5 md:gap-6 lg:gap-8 md:py-0 transition-all duration-300 `}>
-                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/">Home</Link></li>
-                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/community">Community</Link></li>
-                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/create-feed">Create Feed</Link></li>
-                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/profile">Profile</Link></li>
+                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/home" className='hover:border hover:border-[#5b8f95] hover:bg-[#5b8f95] hover:rounded-md p-2'>Home</Link></li>
+                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/community" className='hover:border hover:border-[#5b8f95] hover:bg-[#5b8f95] hover:rounded-md p-2'>Community</Link></li>
+                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/create-feed" className='hover:border hover:border-[#5b8f95] hover:bg-[#5b8f95] hover:rounded-md p-2'>Create Feed</Link></li>
+                    <li><Link style={{ fontSize: 'calc(16px + 2px)' }} to="/profile" className='hover:border hover:border-[#5b8f95] hover:bg-[#5b8f95] hover:rounded-md p-2'>Profile</Link></li>
 
                     <li>
                         <div className='d-flex gap-3 mt-2 md:hidden' >
                             <img className="w-10 h-10 rounded-full inline object-cover" src={currentUser?.photoURL} alt="Rounded avatar" />
-                            <Link style={{ fontSize: 'calc(16px)' }} to="/">{currentUser?.displayName}</Link>
+                            <Link style={{ fontSize: 'calc(16px)' }} to="/" className='hover:border hover:border-[#5b8f95] hover:bg-[#5b8f95] hover:rounded-md p-2'>{currentUser?.displayName}</Link>
                             <button type="button" className="focus:outline-none text-white bg-red-600 hover:bg-red-700 font-medium rounded-md text-lg px-4 py-1.5" onClick={() => signOut(auth)}>Log out</button>
                         </div>
                     </li>

@@ -5,6 +5,7 @@ import AlertBtn from '../components/AlertBtn';
 import Footer from '../components/Footer';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { AiOutlineMessage } from 'react-icons/ai';
+import WeatherCard from '../components/WeatherCard';
 
 const Home = () => {
     const feeds = useContext(FeedsContext);
@@ -38,6 +39,7 @@ const Home = () => {
     return (
         <div className="w-[95%] m-auto">
             <AlertBtn />
+            {/* <WeatherCard /> */}
 
             {/* Image Carousel */}
             <div className="flex justify-center">
@@ -152,7 +154,7 @@ const ChatButton = ({ toggleChat }) => {
     };
 
     return (
-       <></>
+        <></>
     );
 };
 
@@ -170,42 +172,7 @@ const ChatBox = ({ onClose }) => {
     };
 
     return (
-        <div className="fixed bottom-8 right-8 bg-white p-4 rounded-lg shadow-lg w-[90%] md:w-[400px] max-h-[600px] overflow-y-auto">
-            <div className="flex justify-between items-center mb-2">
-                <h2 className="text-xl font-semibold">Chat-Box</h2>
-                <button className="text-gray-500 hover:text-gray-600" onClick={onClose}>
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm-4.293-5.707a1 1 0 011.414-1.414L10 12.586l3.879-3.879a1 1 0 111.414 1.414L11.414 14l3.879 3.879a1 1 0 01-1.414 1.414L10 15.414l-3.879 3.879a1 1 0 01-1.414-1.414L8.586 14 4.707 10.121a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </button>
-            </div>
-            <div className="mb-4">
-                {chatHistory.map((chat, index) => (
-                    <div key={index} className={`text-${chat.sender === 'user' ? 'blue' : 'gray'}-700`}>
-                        {chat.message}
-                    </div>
-                ))}
-            </div>
-            <div className="flex items-center">
-                <input
-                    type="text"
-                    className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:border-blue-500"
-                    placeholder="Ask your question..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                <button
-                    className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none"
-                    onClick={sendMessage}
-                >
-                    Send
-                </button>
-            </div>
-        </div>
+        <> </>
     );
 };
 

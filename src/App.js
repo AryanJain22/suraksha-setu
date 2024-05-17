@@ -12,6 +12,7 @@ import LogOutNav from './components/LogOutNav';
 import Admin from './Admin';
 import AboutUs from './components/AboutUs';
 
+
 const App = () => {
 
   const currentUser = useContext(AuthContext);
@@ -36,10 +37,12 @@ const App = () => {
       <Routes>
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/admin/*' element={<Admin />} />
-        <Route path='/aboutUs' element={<AboutUs />} />
+        {/* <Route path='/home' element={<Home />} /> */}
+        {/* <Route path='/admin/*' element={<Admin />} /> */}
+        <Route path='/' element={<AboutUs />} />
 
+        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path='/admin' element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path='/create-feed' element={<ProtectedRoute><CreateFeed /></ProtectedRoute>} />
         <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path='/community' element={<ProtectedRoute><Communities /></ProtectedRoute>} />

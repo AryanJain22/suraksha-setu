@@ -1,59 +1,109 @@
 import React from 'react';
 import Footer from '../components/Footer'; // Import the footer component
+import './AboutUs.css'; // Import the CSS file
 
 const AboutUs = () => {
     return (
-        <div className="w-full max-w-screen-lg mx-auto px-6">
-
-            {/* How Setu Works */}
-            <div className="my-10">
-                <div className="text-center mb-5">
-                    <h1 className='text-3xl font-semibold md:text-4xl my-5'>How Setu Works</h1>
-                    <div className="w-20 h-1 bg-gray-600 mx-auto my-2"></div>
+        <div>
+            <div className="about-us-container">
+                {/* What is Setu */}
+                <div className="section">
+                    <div className="content">
+                        <div className="text-container">
+                            <h1 className="title">What is Setu</h1>
+                            <div className="line"></div>
+                            <p className="text">
+                                Welcome to Suraksha Setu, a web-based application designed to connect people, organizations, and government bodies on a single platform for emergency assistance. Whether you need help or want to offer support during crises, Suraksha Setu facilitates efficient and timely aid.
+                            </p>
+                            <p className="text">
+                                Users can post emergency requests, offer resources, and coordinate efforts in real-time. Join Suraksha Setu to be part of a proactive network dedicated to providing help during difficult times. Together, we can make a difference.
+                            </p>
+                            <h1 className='hope'>We HOPE, You never have to Use this Site...</h1>
+                        </div>
+                        <div className="image-container">
+                            <img src="https://i.ibb.co/Th9H2cY/Grey-Light-Blue-Minimalist-Family-Insurance-Logo.png" alt="Description of the image" className="section-image" />
+                        </div>
+                    </div>
                 </div>
-                <p className="text-lg">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet ipsum nunc, et placerat velit bibendum id. Nulla facilisi. Phasellus vel arcu ex. Nulla facilisi. Integer at eros pharetra, finibus lorem ut, varius felis.
-                </p>
-                {/* Add more content as needed */}
-            </div>
 
-            {/* COVID Updates */}
-            <div className="my-10">
-                <div className="text-center mb-5">
-                    <h1 className='text-3xl font-semibold md:text-4xl my-5'>Disaster Updates</h1>
-                    <div className="w-20 h-1 bg-gray-600 mx-auto my-2"></div>
+                {/* How Setu Works */}
+                <div className="section">
+                    <h1 className="title">What Setu Have?</h1>
+                    <div className="line"></div>
+                    <p className="space"><span className="star">*</span> Click the circles to know more about the site.</p>
+                    <div className="image-container">
+                        <img src="https://i.ibb.co/GnW1r3Y/EMERGENCY-BUTTON.jpg" alt="Emergency Button" className="section-image" />
+                        <div className="info-circle" style={{ top: '16%', left: '31%' }}>
+                            <div className="info-box">
+                                <p>After log-in you can Use the Emergency button at the top-right corner to reach the organisations and get help.</p>
+                            </div>
+                        </div>
+                        <div className="info-circle" style={{ top: '16%', left: '56%' }}>
+                            <div className="info-box">
+                                <p>Chat Bot at botton-right and Map are there to help you locate the nearest rescue centers and disaster based organisation</p>
+                            </div>
+                        </div>
+                        <div className="info-circle" style={{ top: '71%', left: '56%' }}>
+                            <div className="info-box">
+                                <p>There is a public awareness section where various tips and prevention ways will be shared to the users for the times of emergency</p>
+                            </div>
+                        </div>
+                        <div className="info-circle" style={{ top: '44%', left: '61%' }}>
+                            <div className="info-box">
+                                <p>Community Section is available where government and various organisations will be posting their updates on the disaster policies and relief work status.</p>
+                            </div>
+                        </div>
+                        <div className="info-circle" style={{ top: '44%', left: '26%' }}>
+                            <div className="info-box">
+                                <p>Check below for the live disaster updates</p>
+                            </div>
+                        </div>
+                        <div className="info-circle" style={{ top: '71%', left: '31%' }}>
+                            <div className="info-box">
+                                <p>Users can also post regaring the disaster and remain updated about the disasters in various regions of their country.</p>
+                            </div>
+                        </div>
+                        {/* Add more circles as needed */}
+                    </div>
                 </div>
-                <p className="text-lg">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet ipsum nunc, et placerat velit bibendum id. Nulla facilisi. Phasellus vel arcu ex. Nulla facilisi. Integer at eros pharetra, finibus lorem ut, varius felis.
-                </p>
-                {/* Add more content as needed */}
-            </div>
 
-            {/* Why Setu */}
-            <div className="my-10">
-                <div className="text-center mb-5">
-                    <h1 className='text-3xl font-semibold md:text-4xl my-5'>Why Setu</h1>
-                    <div className="w-20 h-1 bg-gray-600 mx-auto my-2"></div>
+                {/* Disaster Updates */}
+                {/* <div className="section">
+                    <h1 className="title">Disaster Updates</h1>
+                    <div className="line"></div>
+                    <p className="text">Coming Soon..</p>
+                </div> */}
+
+                {/* Why Setu */}
+                <div className="section">
+                    <h1 className="title">Why Setu</h1>
+                    <div className="line"></div>
+                    <div className="text-boxes-container">
+                        <div className="text-box">
+                            <p><b>Safety Network: </b>Suraksha Setu establishes a safety network where individuals facing emergencies can quickly connect with others who can provide assistance. This network enhances overall safety and security by ensuring prompt responses to critical situations.</p>
+                        </div>
+                        <div className="text-box">
+                            <p><b>Efficient Assistance: </b>By centralizing emergency requests and offers for help, Suraksha Setu streamlines the process of seeking and providing assistance. This efficiency is crucial during times of crisis when swift action can make a significant difference in saving lives and mitigating damage.</p>
+                        </div>
+                        <div className="text-box">
+                            <p><b>Community Support: </b>Suraksha Setu fosters a sense of community support by enabling individuals, organizations, and government bodies to come together in times of need. This collective effort strengthens community resilience and solidarity, enhancing overall safety and well-being.
+
+                            </p>
+                        </div>
+                        <div className="text-box">
+                            <p><b>Verified Resources: </b>With a focus on verified users and resources, Suraksha Setu ensures the credibility and reliability of assistance provided through the platform. This feature helps prevent fraud and ensures that those seeking help receive genuine support from trustworthy sources.</p>
+                        </div>
+                    </div>
                 </div>
-                <p className="text-lg">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet ipsum nunc, et placerat velit bibendum id. Nulla facilisi. Phasellus vel arcu ex. Nulla facilisi. Integer at eros pharetra, finibus lorem ut, varius felis.
-                </p>
-                {/* Add more content as needed */}
-            </div>
 
-            {/* Media Gallery */}
-            <div className="my-10">
-                <div className="text-center mb-5">
-                    <h1 className='text-3xl font-semibold md:text-4xl my-5'>Documents</h1>
-                    <div className="w-20 h-1 bg-gray-600 mx-auto my-2"></div>
+
+                {/* Documents */}
+                <div className="section">
+                    <h1 className="title">Documents</h1>
+                    <div className="line"></div>
+                    <p className="text">Coming Soon..</p>
                 </div>
-                <p className="text-lg">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet ipsum nunc, et placerat velit bibendum id. Nulla facilisi. Phasellus vel arcu ex. Nulla facilisi. Integer at eros pharetra, finibus lorem ut, varius felis.
-                </p>
-                {/* Add more content as needed */}
             </div>
-
-
             {/* Footer */}
             <Footer />
         </div>
