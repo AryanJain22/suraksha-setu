@@ -74,7 +74,6 @@ const AboutUs = () => {
                     <p className="text">Coming Soon..</p>
                 </div> */}
 
-                {/* Why Setu */}
                 <div className="section">
                     <h1 className="title">Why Setu</h1>
                     <div className="line"></div>
@@ -86,15 +85,14 @@ const AboutUs = () => {
                             <p><b>Efficient Assistance: </b>By centralizing emergency requests and offers for help, Suraksha Setu streamlines the process of seeking and providing assistance. This efficiency is crucial during times of crisis when swift action can make a significant difference in saving lives and mitigating damage.</p>
                         </div>
                         <div className="text-box">
-                            <p><b>Community Support: </b>Suraksha Setu fosters a sense of community support by enabling individuals, organizations, and government bodies to come together in times of need. This collective effort strengthens community resilience and solidarity, enhancing overall safety and well-being.
-
-                            </p>
+                            <p><b>Community Support: </b>Suraksha Setu fosters a sense of community support by enabling individuals, organizations, and government bodies to come together in times of need. This collective effort strengthens community resilience and solidarity, enhancing overall safety and well-being.</p>
                         </div>
                         <div className="text-box">
                             <p><b>Verified Resources: </b>With a focus on verified users and resources, Suraksha Setu ensures the credibility and reliability of assistance provided through the platform. This feature helps prevent fraud and ensures that those seeking help receive genuine support from trustworthy sources.</p>
                         </div>
                     </div>
                 </div>
+
 
 
                 {/* Documents */}
