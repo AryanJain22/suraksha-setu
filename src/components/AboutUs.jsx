@@ -28,7 +28,7 @@ const AboutUs = () => {
 
                 {/* How Setu Works */}
                 <div className="section">
-                    <h1 className="title">What Setu Have?</h1>
+                    <h1 className="title">What Setu Has?</h1>
                     <div className="line"></div>
                     <p className="space"><span className="star">*</span> Click the circles to know more about the site.</p>
                     <div className="image-container">
