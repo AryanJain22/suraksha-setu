@@ -14,7 +14,7 @@ const Home = () => {
 
     // Dummy images array for demonstration
     const images = [
-        'https://i.ibb.co/GnW1r3Y/EMERGENCY-BUTTON.jpg',
+        // 'https://i.ibb.co/GnW1r3Y/EMERGENCY-BUTTON.jpg',
         'https://t4.ftcdn.net/jpg/06/32/25/85/360_F_632258589_fHQIsIXfXCPtLITflcVlO0aly7fS64hm.jpg',
         'https://5.imimg.com/data5/SELLER/Default/2023/12/369974067/NM/XF/MS/9978962/emergency-preparedness.png',
         'https://media.licdn.com/dms/image/D5612AQFrDcQRT1Hg5A/article-cover_image-shrink_720_1280/0/1664286287175?e=2147483647&v=beta&t=4s6tMVpYXT2GQuUJ9wBLvYq2huFD-mAbiOor1Ww2kqI',
@@ -39,6 +39,7 @@ const Home = () => {
     return (
         <div className="w-[95%] m-auto">
             <AlertBtn />
+            <p><span className="star">*</span> Press this button During the time of Emergency.</p>
             {/* <WeatherCard /> */}
 
             {/* Image Carousel */}
