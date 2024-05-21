@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Admin = () => {
@@ -41,8 +41,13 @@ const Admin = () => {
     }, []);
 
     const handleCallClick = (phoneNumber) => {
-        // Initiate a call when the "Call" button is clicked
         window.location.href = `tel:${phoneNumber}`;
+    };
+
+    const handleRemoveReport = (id) => {
+        if (window.confirm('Are you sure you want to remove this report?')) {
+            setEmergencyReports(prevReports => prevReports.filter(report => report.id !== id));
+        }
     };
 
     return (
@@ -81,6 +86,9 @@ const Admin = () => {
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Call Back
                             </th>
+                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Remove
+                            </th>
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
@@ -109,6 +117,11 @@ const Admin = () => {
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <button onClick={() => handleCallClick(report.phoneNumber)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         Call
+                                    </button>
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap">
+                                    <button onClick={() => handleRemoveReport(report.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                        Remove
                                     </button>
                                 </td>
                             </tr>
